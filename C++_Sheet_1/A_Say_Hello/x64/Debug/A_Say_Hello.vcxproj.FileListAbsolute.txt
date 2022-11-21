@@ -1,2 +1,0 @@
-D:\_Study_A\ProblemSolving\C++_Sheet_1\x64\Debug\A_Say_Hello.exe.lastcodeanalysissucceeded
-D:\_Study_A\ProblemSolving\C++_Sheet_1\A_Say_Hello\x64\Debug\NativeCodeAnalysis.read.1.tlog
