@@ -7,33 +7,29 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class Multibly{
     private:
-        char input_char[20];
-
+        int a, b;
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        Multibly(){
+            std::cout << "Class Defined without and arguments, so please enter the two numbers a & b\n";
+            cin >> a;
+            cin >> b;
         }
-        printer(char a[]){
+        Multibly(int a, int b){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            if(a % b > 0){
+                std::cout << "No Multiples \n";
+            }else{
+                std::cout << "Multiples\n";
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
-    p.print();
+    Multibly m;
+    m.print();
 }

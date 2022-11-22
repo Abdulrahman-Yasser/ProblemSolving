@@ -7,33 +7,37 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class MinVsMax{
     private:
-        char input_char[20];
+        int a[3];
 
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        MinVsMax(){
+            std::cout << "Class Defined without and arguments, so Enter the values \n";
+            cin >> a[0] >> a[1] >> a[2];
         }
-        printer(char a[]){
+        MinVsMax(int x,int y,int z){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+            a[0] = x;
+            a[1] = y;
+            a[2] = z;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            int i, min = 100000, max = -100000;
+            for(i = 0; i < 3; i++){
+                if(min > a[i]){
+                    min = a[i];
+                }
+                if(max < a[i]){
+                    max = a[i];
+                }
+            }
+            cout << min << " " << max ;
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    MinVsMax p;
     p.print();
 }

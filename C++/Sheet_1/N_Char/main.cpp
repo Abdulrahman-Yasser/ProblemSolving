@@ -7,33 +7,30 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class chaaar{
     private:
-        char input_char[20];
+        char input_char;
 
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        chaaar(){
+            std::cout << "Class Defined without and arguments, so Enter it's value\n";
+            cin >> input_char;
         }
-        printer(char a[]){
+        chaaar(char a){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+            input_char = a;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            if(input_char <= 0x5a && input_char >= 0x41){
+                cout << char(input_char + 0x20);
+            }else if(input_char <= 0x7a && input_char >= 0x61){
+                cout << char(input_char - 0x20);
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    chaaar p;
     p.print();
 }

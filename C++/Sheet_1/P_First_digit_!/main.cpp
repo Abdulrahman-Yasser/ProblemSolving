@@ -7,33 +7,36 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class First_digit{
     private:
-        char input_char[20];
+        int x;
 
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        First_digit(){
+            std::cout << "Class Defined without and arguments, Please enter the integer, make sure the value between 1000 : 9999 \n";
+            do{
+                std::cout << "make sure the value between 1000 : 9999 \n";
+                cin >> x;
+            }while(x < 1000 || x > 9999);
         }
-        printer(char a[]){
-            std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+        First_digit(int a){
+            x = a;
+            while(x < 1000 || x > 9999){
+                std::cout << "Enter the right value of x \n";
+                cin >> x;
+            }
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            if((x / 1000) % 2){
+                std::cout << "ODD\n";
+            }else{
+                std::cout << "EVEN\n";
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    First_digit p;
     p.print();
 }

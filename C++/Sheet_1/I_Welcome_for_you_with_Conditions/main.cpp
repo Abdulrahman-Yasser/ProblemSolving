@@ -9,31 +9,29 @@
 using namespace std;
 class printer{
     private:
-        char input_char[20];
-
+        int a, b;
     public:
         printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+            cout << "Class Defined without and arguments, Please enter a & b values \n";
+            cin >> a;
+            cin >> b;
         }
-        printer(char a[]){
-            std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+        printer(int x, int y){
+            cout << "Class Defined with an argument, and it is saved ..\n";
+            a = x;
+            b = y;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            if(a >= b){
+                cout << "yes\n";
+            }else{
+                cout << "NO\n";
+            }
         }
 };
 
 int main()
 {
     printer p;
-    p.set_inputChar();
     p.print();
 }

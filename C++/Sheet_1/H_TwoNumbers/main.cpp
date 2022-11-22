@@ -1,39 +1,41 @@
-// 1_Say_Hello.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <string>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class TwoNumbers{
     private:
-        char input_char[20];
-
+        float x;
+        int ceil, floor, round;
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        TwoNumbers(){
+            std::cout << "Class Defined without and arguments, so Please enter the number\n";
+            cin >> x;
         }
-        printer(char a[]){
+        TwoNumbers(float a){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
+            x = a;
         }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+        void calculate(){
+            floor = int(x);
+            ceil = floor + 1;
+            if(int((x - int(x))*10) >= 5){
+                round = ceil;
+            }else{
+                round = floor;
+            }
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            calculate();
+            std::cout << "Floor " << floor << "\n";
+            std::cout << "Ceil " << ceil << "\n";
+            std::cout << "Round " << round << "\n";
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    TwoNumbers p;
     p.print();
 }
