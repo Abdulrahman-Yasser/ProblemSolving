@@ -7,33 +7,47 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class The_last_2_digits{
     private:
-        char input_char[20];
-
+        int a[4] = {0, 0, 0, 0};
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        The_last_2_digits(){
+            std::cout << "Class Defined without and arguments\n";
+            for(int i = 0; i < 4; i++){
+                while(a[i] < 2 || a[i] > 1000000000){
+                    std::cout << "Make sure the  range is between 2 and 1000000000 ..\n";
+                    cin >> a[i];
+                }
+            }
         }
-        printer(char a[]){
+        The_last_2_digits(int input[4]){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+            for(int i = 0; i < 4; i++){
+                a[i] = input[i];
+                while(a[i] < 2 || a[i] > 1000000000){
+                    std::cout << "Make sure the  range is between 2 and 1000000000 ..\n";
+                    cin >> a[i];
+                }
+            }
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            int x = 1, y = 1, i;
+            for(i = 0; i < a[1]; i++){
+                x = x * a[0];
+            }
+            for(i = 0; i < a[3]; i++){
+                y = y * a[2];
+            }
+            if(x > y){
+                cout  << "YES";
+            }else{
+                cout << "NO";
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    The_last_2_digits p;
     p.print();
 }

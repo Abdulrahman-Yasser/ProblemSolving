@@ -7,33 +7,31 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class Float_Or_Integer{
     private:
-        char input_char[20];
+        float x;
 
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        Float_Or_Integer(){
+            std::cout << "Class Defined without and arguments, so Please4 enter your value\n";
+            cin >> x;
         }
-        printer(char a[]){
+        Float_Or_Integer(int a){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+            x = a;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            int var = int(x);
+            if(float(x - var) > 0){
+                cout << "Float " << var << " " << x - var << endl;
+            }else{
+                cout << "int " << var << endl;
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    Float_Or_Integer p;
     p.print();
 }

@@ -7,33 +7,56 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class Two_intervals{
     private:
-        char input_char[20];
-
+        int l1 = 0, r1 = 0, l2 = 0, r2 = 0;
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        Two_intervals(){
+            std::cout << "Class Defined without and arguments\n";
+            while(l1 >= r1){
+                std::cout << "l1 can't be higher than r1, Please enter l1 and r1 ..\n";
+                cin >> l1 >> r1;
+            }
+            while(l2 >= r2){
+                std::cout << "l2 can't be higher than r2, Please enter l2 and r2 ..\n";
+                cin >> l2 >> r2;
+            }
         }
-        printer(char a[]){
+        Two_intervals(int a, int b, int c, int d){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
-        }
-        void set_inputChar(){
-            std::cin >> input_char;
-        }
-        char *get_inputChar(){
-            return input_char;
+            l1 = a;
+            r1 = b;
+            l2 = c;
+            r2 = d;
+            while(l1 >= r1){
+                std::cout << "l1 is higher than r1, Please enter l1 and r1 ..\n";
+                cin >> l1 >> r1;
+            }
+            while(l2 >= r2){
+                std::cout << "l2 is higher than r2, Please enter l2 and r2 ..\n";
+                cin >> l2 >> r2;
+            }
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            if(r1 < l2){
+                cout << -1;
+                return;
+            }
+            if(r1 < r2){
+                cout << r1 << " ";
+            }else{
+                cout << r2 << " ";
+            }
+            if(l1 < l2){
+                cout << l2 << " ";
+            }else{
+                cout << l1 << " ";
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
+    Two_intervals p;
     p.print();
 }
