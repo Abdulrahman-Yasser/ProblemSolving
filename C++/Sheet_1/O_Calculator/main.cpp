@@ -7,33 +7,66 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class mathmatical{
     private:
-        char input_char[20];
-
+        int x;
     public:
-        printer(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        mathmatical(){
+            cin >> x ;
         }
-        printer(char a[]){
-            std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
+        mathmatical(int input_1){
+            x = input_1;
         }
-        void set_inputChar(){
-            std::cin >> input_char;
+        mathmatical operator+(mathmatical m1){
+            mathmatical m2(0);
+            m2.x = x + m1.x;
+            return m2;
         }
-        char *get_inputChar(){
-            return input_char;
+        mathmatical operator-(mathmatical m1){
+            mathmatical m2(0);
+            m2.x = x - m1.x;
+            return m2;
+        }
+        mathmatical operator*(mathmatical m1){
+            mathmatical m2(0);
+            m2.x = x * m1.x;
+            return m2;
+        }
+        mathmatical operator/(mathmatical m1){
+            mathmatical m2(0);
+            m2.x = x / m1.x;
+            return m2;
         }
         void print(){
-            std::cout << "Hello " << input_char << "\n";
+            cout << x;
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
-    p.print();
+    char op;
+    int a, b;
+    cout << "Enter the operation\n";
+    cin >> a >> op >> b ;
+    mathmatical p1(a);
+    mathmatical p2(b);
+    mathmatical p3(0);
+    switch (op)
+    {
+    case '+':
+        p3 = p1 + p2;
+        break;
+    case '-':
+        p3 = p1 - p2;
+        break;
+    case '*':
+        p3 = p1 * p2;
+        break;
+    case '/':
+        p3 = p1 / p2;
+        break;
+    default:
+        break;
+    }
+    p3.print();
 }

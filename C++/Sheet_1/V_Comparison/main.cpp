@@ -7,33 +7,72 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class Comparison{
+class mathmatical{
     private:
-        char input_char[20];
-
+        int x;
     public:
-        Comparison(){
-            std::cout << "Class Defined without and arguments, so it's noname\n";
-            strcpy(input_char, "no name");
+        mathmatical(){
+            cin >> x ;
         }
-        Comparison(char a[]){
-            std::cout << "Class Defined with an argument, and it is saved ..\n";
-            strcpy(input_char, a);
+        mathmatical(int input_1){
+            x = input_1;
         }
-        void set_inputChar(){
-            std::cin >> input_char;
+        int operator>(mathmatical m1){
+            if (x > m1.x){
+                return 1;
+            }else{
+                return 0;
+            }
         }
-        char *get_inputChar(){
-            return input_char;
+        int operator<(mathmatical m1){
+            if (x < m1.x){
+                return 1;
+            }else{
+                return 0;
+            }
         }
-        void print(){
-            std::cout << "Hello " << input_char << "\n";
+        int operator==(mathmatical m1){
+            if (x == m1.x){
+                return 1;
+            }else{
+                return 0;
+            }
         }
 };
 
 int main()
 {
-    printer p;
-    p.set_inputChar();
-    p.print();
+    char op;
+    int a, b;
+    cout << "Enter the operation\n";
+    cin >> a >> op >> b ;
+    mathmatical p1(a);
+    mathmatical p2(b);
+    mathmatical p3(0);
+    switch (op)
+    {
+    case '>':
+        if(p1 > p2){
+            cout << "Right\n";
+        }else{
+            cout << "wrong\n";
+        }
+        break;
+    case '<':
+        if(p1 < p2){
+            cout << "Right\n";
+        }else{
+            cout << "wrong\n";
+        }
+        break;
+    case '=':
+        if(p1 == p2){
+            cout << "Right\n";
+        }else{
+            cout << "wrong\n";
+        }
+        break;
+    default:
+        break;
+    }
 }
