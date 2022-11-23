@@ -7,16 +7,16 @@
 #include <algorithm>
 #include <cstdlib>
 using namespace std;
-class printer{
+class Comparison{
     private:
         char input_char[20];
 
     public:
-        printer(){
+        Comparison(){
             std::cout << "Class Defined without and arguments, so it's noname\n";
             strcpy(input_char, "no name");
         }
-        printer(char a[]){
+        Comparison(char a[]){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
             strcpy(input_char, a);
         }
