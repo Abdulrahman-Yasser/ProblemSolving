@@ -9,32 +9,40 @@
 using namespace std;
 class Even_Odd_Positive_and_Negative{
     private:
-        int a;
+        int num;
         int *Ptr;
     public:
         Even_Odd_Positive_and_Negative(){
             std::cout << "Class Defined without and arguments, so Enter the values \n";
-            cin >> a;
-            int b[a];
-            for (int i = 0; i < a; i++){
-                cin >> b[i];
+            cin >> num;
+            Ptr = (int*)malloc(sizeof(int)*num);
+            for (int i = 0; i < num; i++){
+                cin >> Ptr[i];
             }
         }
         Even_Odd_Positive_and_Negative(int x){
             std::cout << "Class Defined with an argument, and it is saved ..\n";
-            a = x;
+            num = x;
         }
+
         void print(){
-            static int q = 1;
-            while(q <= a){
-                if(q % 2 == 0){
-                    cout << q << endl; 
-                    q += 2;
+            int even = 0, odd = 0, pos = 0, neg = 0, i;
+            for(i = 0; i < num; i++){
+                if(Ptr[i] % 2){
+                    odd++;
                 }else{
-                    q++;
+                    even++;
+                }
+                if(Ptr[i] > 0){
+                    pos++;
+                }else if(Ptr[i] < 0){
+                    neg++;
                 }
             }
-            q = 0;
+            cout << "Even: " << even << endl;
+            cout << "Odd: " << odd << endl;
+            cout << "Positive: " << pos << endl;
+            cout << "Negative: " << neg << endl;
         }
 };
 
