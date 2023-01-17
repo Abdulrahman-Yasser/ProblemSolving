@@ -8,39 +8,42 @@
 using namespace std;
 class Boy_or_Girl{
     private:
-        string Str_1, Str_2;
+        string Name;
     public:
         Boy_or_Girl(){
-            int min = 0;
-            int i;
-            cin >> Str_1;
-            cin >> Str_2;
+            cin >> Name;
         }
         void print(){
-            int i, j, cnt = 0;
-            for(i = 0; Str_1[i] != '\0'; i++){
-                if( (Str_1[i] - Str_2[i] == 0 ) || ( abs(Str_1[i] - Str_2[i]) == 32) ){
-
-                }else{
-                    if(Str_1[i] >= 97 && Str_2[i] >= 97){
-                    }else if(Str_1[i] <= 90 && Str_2[i] <= 90 ){
+            int i = 0, cnt = 0;
+            long long int HashBits = 0;
+            /* we will deal with the long integer with 64 bits as a hash table, 
+               each character will have a bit indexed
+               capital Characters will be from index 0 to 25
+               Small Characters will be from index 26 to 51 */
+            while(Name[i] != '\0'){
+                /* If it's small Character */
+                if(Name[i] <= 90){
+                    if( (HashBits & (1 << (Name[i] - 65) ) ) & (1 << (Name[i] - 65) ) ){
+                        
                     }else{
-                        if(Str_1[i] < Str_2[i]){
-                            Str_1[i] += 32;
-                        }else{
-                            Str_2[i] += 32;
-                        }
+                        HashBits |= (1 << (Name[i] - 65));
+                        cnt++;
                     }
-                    if(Str_1[i] > Str_2[i]){
-                        cout << 1;
-                        return;
+                }else if(Name[i] <= 122){
+                    if( (HashBits & (1 << (Name[i] - 97 + 25) ) ) & (1 << (Name[i] - 97 + 25) ) ){
+                        
                     }else{
-                        cout << -1;
-                        return;
+                        HashBits |= (1 << (Name[i] - 97 + 25));
+                        cnt++;
                     }
                 }
+                i++;
             }
-            cout << 0;
+            if(cnt % 2){
+                cout << "IGNORE HIM!";
+            }else{
+                cout << "CHAT WITH HER!";
+            }
         }
 };
 
