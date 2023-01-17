@@ -24,9 +24,9 @@ class Game{
                         break;
                     }
                 }
-            }
+            }   
             if(cnt > 3){
-                cout << 3;
+                cout << 3; 
             }else{
                 cout << cnt;
             }
