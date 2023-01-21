@@ -5,34 +5,29 @@
 #include <algorithm>
 #include <cstdlib>
 #include <math.h>
+#include <set>
 using namespace std;
 
 class Anton_and_Letters{
     private:
         string letter;
+        set <char>Container;
         int b;
     public:
         Anton_and_Letters(){
-            cin >> letter;
-            b = 0;
+            getline(cin,letter);
         }
         void print(){
             int i = 0, cnt = 0;
-            int l = letter.length();
-            while(i < l){
+            while(letter[i] != '}'){
                 if(letter[i] == '{' || letter[i] == '}' || letter[i] == ',' || letter[i] == ' ' ){
                 }else{
-                    if(b & (1 << (letter[i]-97) ) ){
-                    }else{
-                        b |= (1 << (letter[i]-97) );
-                        cnt++;
-                    }
+                    Container.insert(letter[i]);
                 }
                 i++;
             }
-            cout << cnt;
+            cout << Container.size();
         }
-
 };
 
 int main()
