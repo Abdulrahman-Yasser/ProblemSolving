@@ -13,13 +13,19 @@ using namespace std;
 */
 class Wanna_Be_the_Guy_64_num{
     private:
-        int n;
+        int n, n_1, n_2;
         unsigned long long int marker = 0;
     public:
         Wanna_Be_the_Guy_64_num(){
             int temp;
             cin >> n;
-            for(int i = 0; i < n * 2; i++){
+            cin >> n_1;
+            for(int i = 0; i < n_1; i++){
+                cin >> temp;
+                marker |= 1 << temp;
+            }
+            cin >> n_2;
+            for(int i = 0; i < n_2; i++){
                 cin >> temp;
                 marker |= 1 << temp;
             }
