@@ -14,22 +14,34 @@ using namespace std;
 class Is_it_rated{
     private:
         int n;
-        int *Ptr;
+        int t;
+        char *Ptr;
     public:
         Is_it_rated(){
             cin >> n;
-            Ptr = new int[n * 2];
-            for(int i = 0; i < n * 2; i++){
-                cin >> Ptr[2*i];
-                cin >> Ptr[2*i + 1];
-            }
+            Ptr = new char[n];
+            cin >> t;
         }
         void print(){
-            unsigned long long int q = pow(2, n + 1) - 1 ;
-            if(marker == q){
-                cout << "I become the guy.";
+            if(t != 10){
+                Ptr[0] = t + 48;
+                for(int i = 1; i < n - 1; i++){
+                    Ptr[i] = '0';
+                }
+                Ptr[n-1] = t + 48;
+                for(int i = 0; i < n; i++){
+                    cout << Ptr[i];
+                }
+            }else if(t == 10 && n > 1){
+                for(int i = 0; i < n - 1; i++){
+                    Ptr[i] = '1';
+                }
+                Ptr[n-1] = '0';
+                for(int i = 0; i < n; i++){
+                    cout << Ptr[i];
+                }
             }else{
-                cout << "Oh, my keyboard!";
+                cout << -1;
             }
         }
 };
