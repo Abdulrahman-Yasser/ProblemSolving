@@ -19,7 +19,7 @@ typedef struct element{
 class  Final_Standings{
     private:
         unsigned int n;
-        int *FrequentArray;
+        unsigned int *FrequentArray;
         element* element_Array;
         void Add_Element(unsigned long long int M_temp, unsigned int ID_temp){
             element *e, *ptr;
@@ -38,11 +38,12 @@ class  Final_Standings{
         }
     public:
         Final_Standings(){
-            int M_temp, ID_temp;
+            unsigned long long int M_temp;
+            unsigned int ID_temp;
             cin >> n;
             element_Array = new element[n];
-            FrequentArray = new int[n];
-            memset(FrequentArray, 0, n * sizeof(int));
+            FrequentArray = new unsigned int[n];
+            memset(FrequentArray, 0, n * sizeof(unsigned int));
             for(int i = 0; i < n; i++){
                 cin >>  M_temp >> ID_temp;
                 Add_Element(M_temp, ID_temp);
@@ -52,7 +53,6 @@ class  Final_Standings{
         }
         void print(){
             element *ptr;
-            cout << "------------------------" << endl;
             for(int i = n-1; i > 0; i--){
                 ptr = &element_Array[i];
                 for(int j = 0; j < FrequentArray[i]; j++){
