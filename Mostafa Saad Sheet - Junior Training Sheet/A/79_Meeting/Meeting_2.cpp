@@ -31,6 +31,7 @@ void Meeting_2::FillThePoints(void){
     int height = y1 - y2; // 5 - 2 = 3
     int periphery = (length + height) * 2;
     Points = new pair<int, int>[periphery];
+    Points_y = new pair<int, int>[periphery];
     /* top and bottom depends on the  length of the rectangle */
     for(int i = 0; i < length; i++){
         /* fill the top */
@@ -50,6 +51,19 @@ void Meeting_2::FillThePoints(void){
         Points[periphery - i - 1 - length].second = y2+i+1;
     }
     /* Sorting the array */
+    memcpy(Points_y, Points, sizeof(pair<int, int>)*periphery);
+
+    sort(Points_y, Points_y+periphery, [](const pair<int,int> &pair1, 
+                          const pair<int,int> &pair2){
+                            int result = 0;
+                            if( (pair2.second > pair1.second) || 
+                                ((pair2.second == pair1.second) &&
+                                (pair2.first > pair1.first)) )
+                            {
+                                result = 1;
+                            } 
+                            return result;
+                        });
     sort(Points, Points+periphery, [](const pair<int,int> &pair1, 
                           const pair<int,int> &pair2){
                             int result = 0;
@@ -66,6 +80,10 @@ void Meeting_2::print(void) const{
     int periphery = ((x2 - x1) + (y1 - y2)) * 2;
     for(int i = 0; i < periphery; i++){
         cout << "(" << Points[i].first << "," << Points[i].second << ")" << " - ";
+    }
+    cout << endl;
+    for(int i = 0; i < periphery; i++){
+        cout << "(" << Points_y[i].first << "," << Points_y[i].second << ")" << " - ";
     }
 }
 
@@ -84,3 +102,4 @@ int main(){
     p.print();
     p.Sloution();
 }
+

@@ -12,6 +12,7 @@ class Meeting_2{
         int x1, y1, x2, y2, CirclesNum;
         int *Circles;
         pair <int, int> *Points;
+        pair <int, int> *Points_y;
         void FillThePoints(void);
     public:
         Meeting_2();
