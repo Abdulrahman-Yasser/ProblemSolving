@@ -16,7 +16,7 @@ this repo contain my accomplish in problem solving
 
 |Day|Title|Description|Language|Source|Link|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|1| adhoc| Balanced Tunnel | C | <a href="https://codeforces.com/contest/1237/problem/B ">Problems Link</a> | <a href="" >View Code</a> |
+|1| adhoc| Balanced Tunnel | C | <a href="https://www.hackerrank.com/challenges/balanced-brackets/problem?isFullScreen=true">Problems Link</a> | <a href="" >View Code</a> |
 |2||||||
 |3||||||
 |4||||||
