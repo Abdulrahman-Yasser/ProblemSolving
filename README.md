@@ -16,8 +16,8 @@ this repo contain my accomplish in problem solving
 
 |Day|Title|Description|Language|Source|Link|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|1| adhoc| Balanced Tunnel | C | <a href="https://www.hackerrank.com/challenges/balanced-brackets/problem?isFullScreen=true">Problems Link</a> | <a href="" >View Code</a> |
-|2||||||
+|1| adhoc | Balanced Tunnel | C | <a href="https://www.hackerrank.com/challenges/balanced-brackets/problem?isFullScreen=true">Problems Link</a> | <a href="" >View Code</a> |
+|2| adhoc | Queue | C |<a href="https://www.hackerrank.com/challenges/queue-using-two-stacks/problem?isFullScreen=true">Problems Link</a>||
 |3||||||
 |4||||||
 |5||||||

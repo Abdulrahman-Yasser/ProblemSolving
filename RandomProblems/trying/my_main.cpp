@@ -102,7 +102,7 @@ void decode_huff(node * root, string s) {
         }else{
             ptr = ptr->left;
         }
-        if(ptr->data != 'ϕ'){
+        if(ptr->data != ){
             cout << ptr->data;
             ptr = root;
         }

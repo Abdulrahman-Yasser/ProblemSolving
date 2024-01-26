@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/_Study_A/ProblemSolving/RandomProblems/trying",
-      "program": "d:/_Study_A/ProblemSolving/RandomProblems/trying/build/Debug/outDebug",
+      "cwd": "d:/_Study_A/ProblemSolving/RandomProblems/infex_solver",
+      "program": "d:/_Study_A/ProblemSolving/RandomProblems/infex_solver/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
