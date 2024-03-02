@@ -6,8 +6,6 @@ int max(int a, int b){
 
 float array_average(int arr[], int len){
     static int maxi = max(len, maxi);
-
-
     if(len == 1){
         return arr[0];
     }
