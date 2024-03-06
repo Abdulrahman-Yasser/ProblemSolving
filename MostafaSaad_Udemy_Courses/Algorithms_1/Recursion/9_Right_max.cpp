@@ -16,9 +16,9 @@ void right_max(int arr[], int len){
 }
 
 int main(){
-    int a[] = {1, 3, 5, 7, 4, 2};
-    right_max(a, 6);
-    for(int i = 0; i < 6; i++){
+    int a[] = {1, 8, 2, 10, 3};
+    right_max(a, 5);
+    for(int i = 0; i < 5; i++){
         std::cout << a[i] << " ";
     }
 }
