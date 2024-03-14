@@ -1,14 +1,11 @@
 #include <iostream>
 #include <string>
 #include "limits.h"
+#include "stdlib.h"
 
 
-
-/*
-    Challenge : code must be only 3 operations
-*/
 void count_sort(int a[], int num){
-    int max = INT_MIN, min = INT_MAX;
+    int max = INT_MIN, min = INT_MAX, begin;
     int whole_size;
     int* freq_arr;
     int i, j;
@@ -22,24 +19,28 @@ void count_sort(int a[], int num){
             max = a[i];
         }
     }
-    
-    if(min < 0){
-        min = abs(min);
-    }else{
-        min = 0;
+
+    if(min < 0 && max > 0){
+        begin = 0 - min;
+    }else if(min < 0 && max < 0){
+        begin = 0 - max;
+    }else if(min > 0 && max > 0){
+        begin = 0 - min;
     }
 
-    max = abs(max);
-    whole_size = max + min;
+    min = 0 - min;
 
-    freq_arr = new int[whole_size];
+    max = abs(max);
+    whole_size = max + min+1;
+
+    freq_arr = (int*)calloc(whole_size, sizeof(int));
 
     for(i = 0; i < num ; i++){
         freq_arr[ a[i] + min ] += 1;
     }
 
     for(i = 0; i < whole_size; i++){
-        for(j = freq_arr[i]; j > 0; j++){
+        for(j = freq_arr[i]; j > 0; j--){
             a[c] = i - min;
             c++;
         }
@@ -54,7 +55,7 @@ void printing(int a[], int num){
 }
 
 int main(){
-    int a[] = {1, 5, 8, 4, 2, 1, 3, 6};
-    count_sort(a, 8);
-    printing(a, 8);
+    int a[] = {1, 5, 8, -6, 4, -30, 2, 1, 3, 6, -20};
+    count_sort(a, 11);
+    printing(a, 11);
 }
