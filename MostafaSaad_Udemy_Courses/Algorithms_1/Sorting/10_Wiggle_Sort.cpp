@@ -7,14 +7,10 @@
 #include <algorithm>
 #include <stdbool.h>
 
-bool compare_inc(int a, int b)
-{
-    return a < b;
-}
-
-bool compare_dec(int a, int b)
-{
-    return a > b;
+void swap(int& a, int& b){
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
 void wiggleSort(std::vector<int> &nums)
@@ -24,15 +20,11 @@ void wiggleSort(std::vector<int> &nums)
     for(auto i = nums.begin(); i < nums.end() - 1; ++i, ++j){
         if(j % 2){
             if(*i <= *(i+1)){
-                int temp = *i;
-                *i = *(i+1);
-                *(i+1) = temp;
+                swap(*i, *(i+1));
             }
         }else{
             if(*i >= *(i+1)){
-                int temp = *i;
-                *i = *(i+1);
-                *(i+1) = temp;
+                swap(*i, *(i+1));
             }
         }
     }
