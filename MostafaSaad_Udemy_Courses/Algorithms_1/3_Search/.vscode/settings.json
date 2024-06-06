@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.rst": "restructuredtext",
+        "array": "cpp"
+    }
+}

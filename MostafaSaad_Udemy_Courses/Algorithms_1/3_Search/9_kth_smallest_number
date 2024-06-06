@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<climits>
+#include<cmath>
+#include<set>
+using namespace std;
+class Solution {
+public:
+    int helper_fun(int m, int n, int value){
+        int count = 0, r;
+        for(r = 1; r <= m; r++){
+            count += min(value/r, n);
+        }
+        return count;
+    }
+    int findKthNumber(int m, int n, int k) {
+        int mid = 0, start = 1, end = m*n, kth = 0;
+        while(start <= end){
+            mid = (start + end) / 2;
+            if(helper_fun(m, n, mid) < k){
+                start  = mid +  1;
+            }else{
+                end = mid - 1;
+                kth = mid;
+            }
+        }
+        return kth;
+    }
+};
